@@ -49,11 +49,10 @@ class ApiList(rst.Resource):
 
 @app.route('/api', methods=['POST', 'GET'])
 def getUrl():
-	if request.method == "GET" || request.mothod == "POST"
+	if request.mothod == "POST":
 		url = request.args.get("url", "")
 	return url
 
-def 
 def classify():
     """
     Accept post request and run orchestration

@@ -3,13 +3,12 @@
 from flask import Flask, request
 from flask.ext import restful as rst
 from flask_restful import reqparse, abort
-import orchestrator
 
 app = Flask(__name__)
 api = rst.Api(app)
 
 DATA = {
-    "data1": {"url": "jasonliu.rocks/static/swag.jpg"}
+	"data0": {"url" : "very first url"}
 }
 
 parser = reqparse.RequestParser()
@@ -48,6 +47,13 @@ class ApiList(rst.Resource):
         DATA[id] = {'url': args['url']}
         return DATA[id], 201
 
+@app.route('/api', methods=['POST', 'GET'])
+def getUrl():
+	if request.method == "GET" || request.mothod == "POST"
+		url = request.args.get("url", "")
+	return url
+
+def 
 def classify():
     """
     Accept post request and run orchestration
@@ -62,5 +68,4 @@ api.add_resource(Api, '/api/<string:id>', endpoint='api-ep')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    classify()
+    app.run(host='calvinubuntu', port=5050, debug=True)
